@@ -14,28 +14,39 @@ namespace Server.Controllers
     [ApiController]
     public class ChatController : ControllerBase
     {
-        static Messages messagesBox = new Messages();
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]   
+        [HttpGet]
+        public string Get()
+        {
+            string all = "";
+            string json;
+            for (int i = Program.AllMessages.messages.Count - 1; i >= 0; i--)
+            {
+                json = JsonSerializer.Serialize(Program.AllMessages.messages.ElementAt(i));
+                all = all + json.ToString() + "\n";
+            }
+            return all;
+        }
 
-        // GET api/<ChatController>/
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)] 
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public string Get(int id)
         {
             string json = "not found";
-            if ((id < messagesBox.messages.Count) && (id >= 0))
+            if ((id < Program.AllMessages.messages.Count) && (id >= 0))
             {
-                json = JsonSerializer.Serialize(messagesBox.messages.ElementAt(id));
+                json = JsonSerializer.Serialize(Program.AllMessages.messages.ElementAt(id));
             }
             return json.ToString();
         }
 
-        // POST api/<ChatController>
         [HttpPost]
         public void Post([FromBody] Message message)
         {
-            messagesBox.Add(message.username, message.text);
-            Console.WriteLine($"{(messagesBox.messages.Count)-1}.{message.username}: {message.text} ");
+            Program.AllMessages.Add(message.username, message.text);
+            Console.WriteLine($"{message.username} sent message: '{message.text}' ");
         }
     }
 }

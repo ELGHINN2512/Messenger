@@ -1,0 +1,18 @@
+﻿<Window x:Class="Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Messenger"
+        Height="640"
+        Width="1024"
+        Background="#222226"
+        >
+    <Grid>
+        <Frame x:Name="frame" Navigated="frame_Navigated" VerticalAlignment="Center" NavigationUIVisibility="Hidden" >
+
+        </Frame>
+    </Grid>
+</Window>

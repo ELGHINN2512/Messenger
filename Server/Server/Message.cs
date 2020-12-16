@@ -3,6 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.IO;
+using Server.Controllers;
+using System.Net;
+using System.Text;
 
 namespace Server
 {
@@ -15,9 +20,9 @@ namespace Server
         // Добавить время сообщения
         public Message()
         {
-            this.username = "Server";
-            this.text = "Server is running";
-            this.time = DateTime.UtcNow;
+                this.username = "Server";
+                this.text = "Server is running";
+                this.time = DateTime.UtcNow;
         }
 
         public Message(string _username, string _text)
@@ -35,31 +40,34 @@ namespace Server
 
         public Messages()
         {
-            messages.Clear();
-            Message message = new Message();
-            messages.Add(message);
+            if(File.Exists("SavedMessages.txt"))
+            {
+                Message message;
+                string line;
+                StreamReader file = new StreamReader("SavedMessages.txt");
+                while((line = file.ReadLine()) != null)
+                {
+                    message = JsonConvert.DeserializeObject<Message>(line);
+                    messages.Add(message);
+                    Console.WriteLine($"Message: '{message.text}' from {message.username} has been loaded");
+                }
+                message = new Message();
+                messages.Add(message);
+                file.Close();
+            }
+            else
+            {
+                Message message = new Message();
+                messages.Add(message);
+            }
         }
-
-        //public Messages(List<Message> messages)
-        //{
-        //    messages.Clear();
-        //    Message message = new Message();
-        //    messages.Add(message);
-        //}
-        //public void Add(Message message)
-        //{
-        //    messages.Add(message);
-        //}
 
         public void Add(string username, string text)
         {
             Message message = new Message(username, text);
             messages.Add(message);
-        }
-
-        public override string ToString()
-        {
-            return messages.ToString();
+            File.AppendAllText("SavedMessages.txt", JsonConvert.SerializeObject(message).ToString()+ "\n");
         }
     }
 }
+
