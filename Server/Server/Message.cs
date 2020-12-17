@@ -15,19 +15,22 @@ namespace Server
     public class Message
     {
         public string username { get; set; }
+        public int token { get; set; }
         public string text { get; set; }
         public DateTime time { get; set; }
         // Добавить время сообщения
         public Message()
         {
-                this.username = "Server";
-                this.text = "Server is running";
-                this.time = DateTime.UtcNow;
+            this.username = "Server";
+            this.token = 0;
+            this.text = "Server is running";
+            this.time = DateTime.UtcNow;
         }
 
-        public Message(string _username, string _text)
+        public Message(string _username, int _token, string _text)
         {
             this.username = _username;
+            this.token = token;
             this.text = _text;
             this.time = DateTime.UtcNow;
         }
@@ -62,9 +65,9 @@ namespace Server
             }
         }
 
-        public void Add(string username, string text)
+        public void Add(string username,int token, string text)
         {
-            Message message = new Message(username, text);
+            Message message = new Message(username,token, text);
             messages.Add(message);
             File.AppendAllText("SavedMessages.txt", JsonConvert.SerializeObject(message).ToString()+ "\n");
         }

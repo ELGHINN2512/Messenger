@@ -16,9 +16,9 @@ namespace Server
         {
         }
 
-        public void Add(int token,string login, string password)
+        public void Add(int token,string login)
         {
-            Session session = new Session(token, login, password);
+            Session session = new Session(token, login);
             sessions.Add(session);
         }
 
@@ -27,6 +27,19 @@ namespace Server
             Random random = new Random();
             return random.Next(100000000, 999999999);
         }
+
+        public int CheckData(Message message)
+        {
+            for(int i=0;i<sessions.Count;i++)
+            {
+                if (sessions[i].login == message.username)
+                    if (sessions[i].token == message.token)
+                        return 1;
+                    else
+                        return -1;
+            }
+            return -1;
+        }
     }
 
     [Serializable]
@@ -34,17 +47,15 @@ namespace Server
     {
         public int token { get; set; }
         public string login { get; set; }
-        public string password { get; set; }
         
         public Session()
         {
         }
 
-        public Session(int _token, string _login, string _password)
+        public Session(int _token, string _login)
         {
             this.token = _token;
             this.login = _login;
-            this.password = _password;
         }
     }
 

@@ -45,7 +45,7 @@ namespace Server.Controllers
         [HttpPost]
         public void Post([FromBody] Message message)
         {
-            Program.AllMessages.Add(message.username, message.text);
+            Program.AllMessages.Add(message.username,message.token, message.text);
             Console.WriteLine($"{message.username} sent message: '{message.text}' ");
         }
     }

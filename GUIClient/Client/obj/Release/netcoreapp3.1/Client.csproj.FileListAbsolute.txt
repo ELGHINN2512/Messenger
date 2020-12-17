@@ -91,14 +91,12 @@ C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\C
 C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\obj\Release\netcoreapp3.1\MainWindow.baml
 C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\obj\Release\netcoreapp3.1\LoginPage.g.cs
 C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\obj\Release\netcoreapp3.1\MainWindow.g.cs
-C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\obj\Release\netcoreapp3.1\MessangerPage.g.cs
 C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\obj\Release\netcoreapp3.1\RegistrationPage.g.cs
 C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\obj\Release\netcoreapp3.1\App.g.cs
 C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\obj\Release\netcoreapp3.1\Client_MarkupCompile.cache
 C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\obj\Release\netcoreapp3.1\Client_MarkupCompile.lref
 C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\obj\Release\netcoreapp3.1\App.baml
 C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\obj\Release\netcoreapp3.1\LoginPage.baml
-C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\obj\Release\netcoreapp3.1\MessangerPage.baml
 C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\obj\Release\netcoreapp3.1\RegistrationPage.baml
 C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\obj\Release\netcoreapp3.1\Client.g.resources
 C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\obj\Release\netcoreapp3.1\Client.AssemblyInfoInputs.cache
@@ -108,3 +106,5 @@ C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\C
 C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\obj\Release\netcoreapp3.1\Client.dll
 C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\obj\Release\netcoreapp3.1\Client.pdb
 C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\obj\Release\netcoreapp3.1\Client.genruntimeconfig.cache
+C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\obj\Release\netcoreapp3.1\MessengerWindow.g.cs
+C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\obj\Release\netcoreapp3.1\MessengerWindow.baml

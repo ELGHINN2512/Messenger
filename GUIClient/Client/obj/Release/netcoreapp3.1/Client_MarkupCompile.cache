@@ -10,11 +10,11 @@ none
 false
 TRACE;RELEASE;NETCOREAPP;NETCOREAPP3_1;
 C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\App.xaml
-42057782182
+41143469523
 
-8-950638976
+8-1527795306
 1952122525370
-LoginPage.xaml;MainWindow.xaml;MessangerPage.xaml;RegistrationPage.xaml;
+LoginPage.xaml;MainWindow.xaml;MessengerWindow.xaml;RegistrationPage.xaml;
 
 False
 

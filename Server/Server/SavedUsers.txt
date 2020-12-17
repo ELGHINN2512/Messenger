@@ -1,2 +1,6 @@
 {"login":"alex","password":"123"}
 {"login":"El","password":"123"}
+{"login":"1","password":"1"}
+{"login":"ALEX","password":"111"}
+{"login":"RURU","password":"RU"}
+{"login":"admin","password":"admin"}

@@ -46,6 +46,7 @@ namespace Client
             warnUserNotFound.Visibility = Visibility.Hidden;
             warnWrongPassword.Visibility = Visibility.Hidden;
             password.Password = "";
+            MainWindow.login = login.Text;
             MainWindow.token = token;
             (Application.Current.MainWindow as MainWindow).transitionMessanger();
         }

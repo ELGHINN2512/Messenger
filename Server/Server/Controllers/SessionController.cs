@@ -25,7 +25,16 @@ namespace Server.Controllers
                     if (Program.Allusers.users[i].password == userData.password)
                     {
                         int token = Program.AllSessions.GenerateToken();
-                        Program.AllSessions.Add(token, userData.login, userData.password);
+                        for(int j = 0; j< Program.AllSessions.sessions.Count; j++)
+                        {
+                            if(Program.AllSessions.sessions[j].login == userData.login)
+                            {
+                                Program.AllSessions.sessions[j].token = token;
+                                Console.WriteLine($"User {userData.login} logged in. Token: {token}");
+                                return token;
+                            }
+                        }
+                        Program.AllSessions.Add(token, userData.login);
                         Console.WriteLine($"User {userData.login} logged in. Token: {token}");
                         return token;
                     }

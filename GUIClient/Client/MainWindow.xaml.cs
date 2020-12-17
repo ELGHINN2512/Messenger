@@ -22,8 +22,8 @@ namespace Client
     {
         LoginPage loginPage = new LoginPage();
         RegistrationPage registrationPage = new RegistrationPage();
-        MessangerPage messangerPage = new MessangerPage();
         public static int token = 0;
+        public static string login = "";
 
         public MainWindow()
         {
@@ -55,12 +55,9 @@ namespace Client
         
         public void transitionMessanger()
         {
-            frame.Height = 640;
-            frame.Width = 1024;
-            MinHeight = frame.Height;
-            MinWidth = frame.Width;
-            frame.Navigate(messangerPage);
-
+            MessengerWindow messengerWindow = new MessengerWindow();
+            messengerWindow.Show();
+            Hide();
         }
 
 
