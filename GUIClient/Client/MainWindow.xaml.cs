@@ -23,6 +23,7 @@ namespace Client
         LoginPage loginPage = new LoginPage();
         RegistrationPage registrationPage = new RegistrationPage();
         MessangerPage messangerPage = new MessangerPage();
+        public static int token = 0;
 
         public MainWindow()
         {

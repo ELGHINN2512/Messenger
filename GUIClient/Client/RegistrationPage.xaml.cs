@@ -35,31 +35,45 @@ namespace Client
             }
             else
             {
-                Session session = new Session(login.Text,pass1.Password);
-                Registration(session);
-                warn.Visibility = Visibility.Hidden;
-                (Application.Current.MainWindow as MainWindow).transitionToAuthorization();
+                if (Registration(login.Text, pass1.Password) == -1)
+                {
+                    warn2.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    login.Text = "";
+                    warn2.Visibility = Visibility.Hidden;
+                    warn.Visibility = Visibility.Hidden;
+                    (Application.Current.MainWindow as MainWindow).transitionToAuthorization();
+                }
+
             }
         }
 
         private void Button_BackToAuthorization(object sender, RoutedEventArgs e)
         {
+            login.Text = "";
+            warn2.Visibility = Visibility.Hidden;
+            warn.Visibility = Visibility.Hidden;
             (Application.Current.MainWindow as MainWindow).transitionToAuthorization();
         }
 
-        static void Registration(Session session)
+        static int Registration(string login, string password)
         {
-            WebRequest httpWebRequest = WebRequest.Create("http://localhost:5000/api/session");
+            UserData userData = new UserData(login,password);
+            WebRequest httpWebRequest = WebRequest.Create("http://localhost:5000/api/registration");
             httpWebRequest.Method = "POST";
             httpWebRequest.ContentType = "application/json";
-            string postData = JsonConvert.SerializeObject(session);
+            string postData = JsonConvert.SerializeObject(userData);
             byte[] bytes = Encoding.UTF8.GetBytes(postData);
             httpWebRequest.ContentLength = bytes.Length;
             Stream reqStream = httpWebRequest.GetRequestStream();
             reqStream.Write(bytes, 0, bytes.Length);
+            int resp;
+            using (var response = (HttpWebResponse)httpWebRequest.GetResponse())
+                resp = Convert.ToInt32(new StreamReader(response.GetResponseStream()).ReadToEnd());
             reqStream.Close();
-
-            httpWebRequest.GetResponse();
+            return resp;
         }
     }
 }

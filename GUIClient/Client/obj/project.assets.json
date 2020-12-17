@@ -138,11 +138,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ярослав\\source\\repos\\ELGHINN2512\\Messenger\\Messenger\\Client v1\\Client\\Client.csproj",
+      "projectUniqueName": "C:\\Users\\Ярослав\\source\\repos\\ELGHINN2512\\Messenger\\Messenger\\GUIClient\\Client\\Client.csproj",
       "projectName": "Client",
-      "projectPath": "C:\\Users\\Ярослав\\source\\repos\\ELGHINN2512\\Messenger\\Messenger\\Client v1\\Client\\Client.csproj",
+      "projectPath": "C:\\Users\\Ярослав\\source\\repos\\ELGHINN2512\\Messenger\\Messenger\\GUIClient\\Client\\Client.csproj",
       "packagesPath": "C:\\Users\\Ярослав\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ярослав\\source\\repos\\ELGHINN2512\\Messenger\\Messenger\\Client v1\\Client\\obj\\",
+      "outputPath": "C:\\Users\\Ярослав\\source\\repos\\ELGHINN2512\\Messenger\\Messenger\\GUIClient\\Client\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

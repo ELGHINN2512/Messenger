@@ -23,6 +23,7 @@
                     <TextBlock Text="Повторите пароль" FontSize="18" Margin="44,267,165,147" Foreground="White"></TextBlock>
                     <PasswordBox Width="278" Height="34" Margin="44 285 44 97" Background="#A3A3A3" CaretBrush="#444446" Foreground="#444446" SelectionBrush="#A3A3A3" FontSize="17" Cursor="IBeam" x:Name="pass2"></PasswordBox>
                     <TextBlock Text="Пароли не совпадают" FontSize="18" Width="200" Margin="83,156,83,267" Foreground="#FFEA2525" Visibility="Hidden" x:Name="warn" />
+                    <TextBlock Text="Данное имя уже используется" FontSize="18" Foreground="#FFEA2525" Visibility="Hidden" x:Name="warn2" Margin="56,66,56,354" />
                     <Button Width="43" Height="26" Margin="283 358 40 33" Padding="0 0 0 0" Background="#A3A3A3" Foreground="#464545" BorderBrush="#A3A3A3" Content="OK" FontSize="15" Cursor="Hand" Click="Button_Click"></Button>
                     <Button Width="31" Height="31" Margin="40 18 295 369" Background="#A3A3A3" Click="Button_BackToAuthorization" Cursor="Hand" ></Button>
                 </Grid>

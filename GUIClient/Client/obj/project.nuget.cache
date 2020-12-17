@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VBH6V1k0SqYF0EqXIKF0fZhRjAmj/SZmTHKQM0suEobMKM5H62MCVrNF7ylgnJEypHO21Gf3ATwN6KaKUBOsBg==",
+  "dgSpecHash": "dSrmwjdleEYAAEs7JlgPEcohYdQc1ouh3GDUH0aDpg654tLz/ndpBhuzgODYf5u79ia0G3gauR5Hk2QwLtW8VQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ярослав\\source\\repos\\ELGHINN2512\\Messenger\\Messenger\\Client v1\\Client\\Client.csproj",
+  "projectFilePath": "C:\\Users\\Ярослав\\source\\repos\\ELGHINN2512\\Messenger\\Messenger\\GUIClient\\Client\\Client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ярослав\\.nuget\\packages\\materialdesigncolors\\1.2.7\\materialdesigncolors.1.2.7.nupkg.sha512",
     "C:\\Users\\Ярослав\\.nuget\\packages\\materialdesignthemes\\3.2.0\\materialdesignthemes.3.2.0.nupkg.sha512",

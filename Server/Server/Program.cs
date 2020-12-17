@@ -16,6 +16,7 @@ namespace Server
 
         public static Messages AllMessages = new Messages();
         public static SessionClass AllSessions = new SessionClass();
+        public static Users Allusers = new Users();
 
         public static void Main(string[] args)
         {

@@ -11,7 +11,7 @@
 
     <Grid>
         <Border Width="1032" Height="47" Background="#444446" VerticalAlignment="Bottom" >
-            <TextBox Width="983" Height="28" Background="#646464">
+            <TextBox Width="983" Height="28" Background="#646464" x:Name="EntryField" TextChanged="EntryField_TextChanged">
                 
             </TextBox>
         </Border>

@@ -45,14 +45,6 @@ namespace Server
         public string login { get; set; }
         public string password { get; set; }
 
-        public Session(string _login, string _password)
-        {
-            Random random = new Random();
-            this.token = random.Next(1, 999999999);
-            this.login = _login;
-            this.password = _password;
-        }
-
         public Session(int _token, string _login, string _password)
         {
             this.token = _token;
@@ -61,4 +53,17 @@ namespace Server
         }
     }
 
+    [Serializable]
+    public class UserData
+    {
+        public string login { get; set; }
+        public string password { get; set; }
+
+        public UserData() { }
+        public UserData(string _login, string _password)
+        {
+            login = _login;
+            password = _password;
+        }
+    }
 }

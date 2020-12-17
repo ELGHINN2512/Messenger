@@ -22,5 +22,9 @@ namespace Client
         {
             InitializeComponent();
         }
+
+        private void EntryField_TextChanged(object sender, TextChangedEventArgs e)
+        {
+        }
     }
 }

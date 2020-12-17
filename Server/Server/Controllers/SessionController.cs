@@ -16,37 +16,22 @@ namespace Server.Controllers
     {
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [HttpGet]
-        public string Get()
-        {
-            string all = "";
-            string json;
-            for (int i = Program.AllSessions.sessions.Count - 1; i >= 0; i--)
-            {
-                json = JsonConvert.SerializeObject(Program.AllSessions.sessions.ElementAt(i));
-                all = all + json.ToString() + "\n";
-            }
-            return all;
-        }
-
-        [HttpGet("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public string Get(int id)
-        {
-            string json = "not found";
-            if ((id < Program.AllSessions.sessions.Count) && (id >= 0))
-            {
-                json = JsonConvert.SerializeObject(Program.AllSessions.sessions.ElementAt(id));
-            }
-            return json.ToString();
-        }
-
         [HttpPost]
-        public void Post([FromBody] Session session)
+        public int Post([FromBody] UserData userData)
         {
-            Program.AllSessions.Add(session.token, session.login, session.password);
-            Console.WriteLine($"Added new user {session.login}");
+            for (int i = 0; i < Program.Allusers.users.Count; i++)
+            {
+                if (Program.Allusers.users[i].login == userData.login)
+                    if (Program.Allusers.users[i].password == userData.password)
+                    {
+                        int token = Program.AllSessions.GenerateToken();
+                        Program.AllSessions.Add(token, userData.login, userData.password);
+                        Console.WriteLine($"User {userData.login} logged in. Token: {token}");
+                        return token;
+                    }
+                    else return -2; // Неверный пароль
+            }
+            return -1;  // Пользователь не найден
         }
     }
 }
