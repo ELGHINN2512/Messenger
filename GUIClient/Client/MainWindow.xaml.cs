@@ -20,6 +20,7 @@ namespace Client
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static MessengerWindow messengerWindow = new MessengerWindow();
         LoginPage loginPage = new LoginPage();
         RegistrationPage registrationPage = new RegistrationPage();
         public static int token = 0;
@@ -55,7 +56,6 @@ namespace Client
         
         public void transitionMessanger()
         {
-            MessengerWindow messengerWindow = new MessengerWindow();
             messengerWindow.Show();
             Hide();
         }

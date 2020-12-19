@@ -6,6 +6,22 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "Emoji.Wpf/0.1.5": {
+        "runtime": {
+          "lib/net30/Emoji.Wpf.dll": {
+            "assemblyVersion": "0.1.5.0",
+            "fileVersion": "0.1.5.0"
+          },
+          "lib/net30/Typography.GlyphLayout.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          },
+          "lib/net30/Typography.OpenFont.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "MaterialDesignColors/1.2.7": {
         "runtime": {
           "lib/netcoreapp3.1/MaterialDesignColors.dll": {
@@ -36,6 +52,13 @@
     }
   },
   "libraries": {
+    "Emoji.Wpf/0.1.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ux/VpCbRBRPIFUc/fACQY/TXDq3igq7AIRMhKneZ0YPgdWNtSxCp4UnldB8Jf5lJzocDvecuRfU8gk0yxhdpjA==",
+      "path": "emoji.wpf/0.1.5",
+      "hashPath": "emoji.wpf.0.1.5.nupkg.sha512"
+    },
     "MaterialDesignColors/1.2.7": {
       "type": "package",
       "serviceable": true,

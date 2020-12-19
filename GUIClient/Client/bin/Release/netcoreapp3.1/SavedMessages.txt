@@ -1,2 +1,0 @@
-{"username":"Server","token":0,"text":"Server is running","time":"2020-12-17T16:39:46.9545275Z"}
-{"username":"Server","token":0,"text":"Server is running","time":"2020-12-17T16:39:47.6005645Z"}

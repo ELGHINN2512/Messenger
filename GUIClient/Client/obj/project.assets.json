@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "Emoji.Wpf/0.1.5": {
+        "type": "package",
+        "compile": {
+          "lib/net30/Emoji.Wpf.dll": {},
+          "lib/net30/Typography.GlyphLayout.dll": {},
+          "lib/net30/Typography.OpenFont.dll": {}
+        },
+        "runtime": {
+          "lib/net30/Emoji.Wpf.dll": {},
+          "lib/net30/Typography.GlyphLayout.dll": {},
+          "lib/net30/Typography.OpenFont.dll": {}
+        }
+      },
       "MaterialDesignColors/1.2.7": {
         "type": "package",
         "compile": {
@@ -38,6 +51,21 @@
     }
   },
   "libraries": {
+    "Emoji.Wpf/0.1.5": {
+      "sha512": "ux/VpCbRBRPIFUc/fACQY/TXDq3igq7AIRMhKneZ0YPgdWNtSxCp4UnldB8Jf5lJzocDvecuRfU8gk0yxhdpjA==",
+      "type": "package",
+      "path": "emoji.wpf/0.1.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "emoji.wpf.0.1.5.nupkg.sha512",
+        "emoji.wpf.nuspec",
+        "icon.png",
+        "lib/net30/Emoji.Wpf.dll",
+        "lib/net30/Typography.GlyphLayout.dll",
+        "lib/net30/Typography.OpenFont.dll"
+      ]
+    },
     "MaterialDesignColors/1.2.7": {
       "sha512": "e+shDlaSAJcuTArqtfWjVUgAOlwQlgWq8akkzCGe1MvfV1ozmOqqXyWxg5w0vC/3/KZ84wnPUJeI1wzEpI0uJQ==",
       "type": "package",
@@ -127,6 +155,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "Emoji.Wpf >= 0.1.5",
       "MaterialDesignThemes >= 3.2.0",
       "Newtonsoft.Json >= 12.0.3"
     ]
@@ -175,6 +204,10 @@
       "netcoreapp3.1": {
         "targetAlias": "netcoreapp3.1",
         "dependencies": {
+          "Emoji.Wpf": {
+            "target": "Package",
+            "version": "[0.1.5, )"
+          },
           "MaterialDesignThemes": {
             "target": "Package",
             "version": "[3.2.0, )"
@@ -205,5 +238,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"Emoji.Wpf 0.1.5\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \".NETCoreApp,Version=v3.1\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "Emoji.Wpf",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

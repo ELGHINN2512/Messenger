@@ -48,7 +48,6 @@ namespace Server
         {
             Message message = new Message(username, token, text);
             messages.Add(message);
-            File.AppendAllText("SavedMessages.txt", JsonConvert.SerializeObject(message).ToString()+ "\n");
         }
 
 

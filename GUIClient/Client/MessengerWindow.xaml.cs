@@ -38,22 +38,19 @@ namespace Client
             Message msg = GetMessage(lastMsgID);
             if (msg != null)
             {
-                chat.Text = chat.Text + $"\n {msg.time.Hour}:{msg.time.Minute} | \t{msg.username}\n {msg.text}\n";
+                chat.Text = chat.Text + $"\n {(msg.time.Hour)+3}:{msg.time.Minute} | \t{msg.username}\n {msg.text}\n";
                 lastMsgID++;
             }
         }
-
         private void SendMessage(object sender, RoutedEventArgs e)
         {
             SendMassage(new Message(MainWindow.login,MainWindow.token,MessageBox.Text));
             MessageBox.Text = "";
         }
-
         private void MessagerWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             (Application.Current.MainWindow as MainWindow).Close();
         }
-
         static void SendMassage(Message message)
         {
             WebRequest httpWebRequest = WebRequest.Create("http://localhost:5000/api/chat");
@@ -79,6 +76,36 @@ namespace Client
                 return null;
             }
             return JsonConvert.DeserializeObject<Message>(smsg);
+        }
+
+        private void OpenPanel(object sender, RoutedEventArgs e)
+        {
+            ShowName.Text = MainWindow.login;
+            LeftPanel.Visibility = Visibility.Visible;
+            ButtonOpenPanel.Visibility = Visibility.Hidden;
+            InputPanel.Margin = new Thickness(240,0,0,0);
+            ChatPannel.Margin = new Thickness(240, 1, 0, 55);
+        }
+
+        private void ClosePannel(object sender, RoutedEventArgs e)
+        {
+            LeftPanel.Visibility = Visibility.Hidden;
+            ButtonOpenPanel.Visibility = Visibility.Visible;
+            InputPanel.Margin = new Thickness(0, 0, 0, 0);
+            ChatPannel.Margin = new Thickness(24, 1, 0, 55);
+        }
+
+        private void ClickButtonExit(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            MainWindow.token = 0;
+            MainWindow.login = "";
+            (Application.Current.MainWindow as MainWindow).Show();
+        }
+
+        private void ClickButtonSettings(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
