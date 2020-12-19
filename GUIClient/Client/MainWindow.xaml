@@ -9,6 +9,8 @@
         Height="640"
         Width="1024"
         Background="#222226"
+                Closing="Window_Closing"
+
         >
     <Grid>
         <Frame x:Name="frame" Navigated="frame_Navigated" VerticalAlignment="Center" NavigationUIVisibility="Hidden" >

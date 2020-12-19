@@ -29,6 +29,7 @@ namespace Client
         public MainWindow()
         {
             InitializeComponent();
+
             transitionToAuthorization();
         }
 
@@ -64,6 +65,10 @@ namespace Client
         private void Button_Registration(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
         }
     }
 }

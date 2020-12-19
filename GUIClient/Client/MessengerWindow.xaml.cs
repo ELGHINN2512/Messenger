@@ -45,7 +45,7 @@ namespace Client
         private void SendMessage(object sender, RoutedEventArgs e)
         {
             SendMassage(new Message(MainWindow.login,MainWindow.token,MessageBox.Text));
-            MessageBox.Text = "";
+            MessageBox.IsReadOnly = false;
         }
         private void MessagerWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -104,6 +104,16 @@ namespace Client
         }
 
         private void ClickButtonSettings(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MessageBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void ClickEmoji(object sender, RoutedEventArgs e)
         {
 
         }
