@@ -22,7 +22,10 @@ namespace Client
     /// </summary>
     public partial class MessengerWindow : Window
     {
-        static int lastMsgID = 0;
+        int lastMsgID = 0;
+        public string login;
+        public int token;
+        static public bool flagCloseMainWindow = true;
 
         public MessengerWindow()
         {
@@ -38,18 +41,21 @@ namespace Client
             Message msg = GetMessage(lastMsgID);
             if (msg != null)
             {
-                chat.Text = chat.Text + $"\n {(msg.time.Hour)+3}:{msg.time.Minute} | \t{msg.username}\n {msg.text}\n";
+                chat.Text = chat.Text + $"\n {((msg.time.Hour)+3)%24}:{msg.time.Minute} | \t{msg.username}\n {msg.text}\n";
                 lastMsgID++;
             }
         }
         private void SendMessage(object sender, RoutedEventArgs e)
         {
-            SendMassage(new Message(MainWindow.login,MainWindow.token,MessageBox.Text));
-            MessageBox.IsReadOnly = false;
+            SendMassage(new Message(login, token, MessageBox.Text));
+            MessageBox.Text = "";
         }
         private void MessagerWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            (Application.Current.MainWindow as MainWindow).Close();
+            if (flagCloseMainWindow == true)
+            {
+                (Application.Current.MainWindow as MainWindow).Close();
+            }
         }
         static void SendMassage(Message message)
         {
@@ -80,7 +86,7 @@ namespace Client
 
         private void OpenPanel(object sender, RoutedEventArgs e)
         {
-            ShowName.Text = MainWindow.login;
+            ShowName.Text = login;
             LeftPanel.Visibility = Visibility.Visible;
             ButtonOpenPanel.Visibility = Visibility.Hidden;
             InputPanel.Margin = new Thickness(240,0,0,0);
@@ -97,10 +103,10 @@ namespace Client
 
         private void ClickButtonExit(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-            MainWindow.token = 0;
-            MainWindow.login = "";
+            flagCloseMainWindow = false;
+            this.Close();
             (Application.Current.MainWindow as MainWindow).Show();
+            flagCloseMainWindow = true;
         }
 
         private void ClickButtonSettings(object sender, RoutedEventArgs e)
@@ -115,7 +121,15 @@ namespace Client
 
         private void ClickEmoji(object sender, RoutedEventArgs e)
         {
+            if (emoji.Visibility == Visibility.Hidden)
+                emoji.Visibility = Visibility.Visible;
+            else
+                emoji.Visibility = Visibility.Hidden;
+        }
 
+        private void ChoiceEmoji(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Text = MessageBox.Text + (sender as Button).Content;
         }
     }
 }

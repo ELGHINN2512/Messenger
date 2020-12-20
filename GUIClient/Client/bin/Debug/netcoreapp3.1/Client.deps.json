@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v3.1": {
       "Client/1.0.0": {
         "dependencies": {
-          "MaterialDesignThemes": "3.2.0"
+          "MaterialDesignThemes": "3.2.0",
+          "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
           "Client.dll": {}
@@ -30,6 +31,14 @@
           "lib/netcoreapp3.1/MaterialDesignThemes.Wpf.dll": {
             "assemblyVersion": "3.2.0.1979",
             "fileVersion": "3.2.0.1979"
+          }
+        }
+      },
+      "Newtonsoft.Json/12.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.3.23909"
           }
         }
       }
@@ -54,6 +63,13 @@
       "sha512": "sha512-aOZQShQuV7sCWOwO98dYz1S4stmIWDBH+Q6KoR3wDiDyuG7twoGnBDzQBhrxuS16I3GQiG5nfvUjEJFVc/zdKg==",
       "path": "materialdesignthemes/3.2.0",
       "hashPath": "materialdesignthemes.3.2.0.nupkg.sha512"
+    },
+    "Newtonsoft.Json/12.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
     }
   }
 }

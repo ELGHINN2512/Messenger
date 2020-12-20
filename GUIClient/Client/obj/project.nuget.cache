@@ -1,24 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "wz2ohkOiS/4p3V6cQKqFcI+pGdpzDvVwRV6T8Z8wqzrig29rLz6fL/L6i8RnUnNreJ8rVdBHFbTFwLujVCopJw==",
+  "dgSpecHash": "dSrmwjdleEYAAEs7JlgPEcohYdQc1ouh3GDUH0aDpg654tLz/ndpBhuzgODYf5u79ia0G3gauR5Hk2QwLtW8VQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Ярослав\\source\\repos\\ELGHINN2512\\Messenger\\Messenger\\GUIClient\\Client\\Client.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Ярослав\\.nuget\\packages\\emoji.wpf\\0.1.5\\emoji.wpf.0.1.5.nupkg.sha512",
     "C:\\Users\\Ярослав\\.nuget\\packages\\materialdesigncolors\\1.2.7\\materialdesigncolors.1.2.7.nupkg.sha512",
     "C:\\Users\\Ярослав\\.nuget\\packages\\materialdesignthemes\\3.2.0\\materialdesignthemes.3.2.0.nupkg.sha512",
     "C:\\Users\\Ярослав\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Пакет \"Emoji.Wpf 0.1.5\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \".NETCoreApp,Version=v3.1\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "libraryId": "Emoji.Wpf",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  "logs": []
 }

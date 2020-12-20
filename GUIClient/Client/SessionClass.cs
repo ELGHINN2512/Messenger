@@ -29,11 +29,14 @@ namespace Server
     {
         public int token { get; set; }
         public string login { get; set; }
+        public int online { get; set; }
+
 
         public Session(int _token, string _login, string _password)
         {
             this.token = _token;
             this.login = _login;
+            this.online = 0;
         }
     }
 

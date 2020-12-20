@@ -23,14 +23,14 @@ namespace Server
         {
             this.username = "Server";
             this.token = 0;
-            this.text = "Server is running";
+            this.text = "\t\t\tServer is running";
             this.time = DateTime.UtcNow;
         }
 
         public Message(string _username, int _token, string _text)
         {
             this.username = _username;
-            this.token = token;
+            this.token = _token;
             this.text = _text;
             this.time = DateTime.UtcNow;
         }

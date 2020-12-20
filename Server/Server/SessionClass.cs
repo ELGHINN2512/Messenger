@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-//test
 namespace Server
 {
     [Serializable]
@@ -28,18 +27,18 @@ namespace Server
             return random.Next(100000000, 999999999);
         }
 
-        public int CheckData(Message message)
-        {
-            for(int i=0;i<sessions.Count;i++)
-            {
-                if (sessions[i].login == message.username)
-                    if (sessions[i].token == message.token)
-                        return 1;
-                    else
-                        return -1;
-            }
-            return -1;
-        }
+        //public int CheckData(Message message)
+        //{
+        //    for (int i = 0; i < sessions.Count; i++)
+        //    {
+        //        if (sessions[i].login == message.username)
+        //            if (sessions[i].token == message.token)
+        //                return 1;
+        //            else
+        //                return -1;
+        //    }
+        //    return -1;
+        //}
     }
 
     [Serializable]
@@ -47,6 +46,7 @@ namespace Server
     {
         public int token { get; set; }
         public string login { get; set; }
+        public int online { get; set; }
         
         public Session()
         {
@@ -56,6 +56,7 @@ namespace Server
         {
             this.token = _token;
             this.login = _login;
+            this.online = 1;
         }
     }
 

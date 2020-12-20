@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\jaroc\OneDrive\Рабочий стол\WPF\Client\Client\obj\Debug\netcoreapp3.1\
+C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\obj\Debug\netcoreapp3.1\
 Client
 none
 false
-TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
-C:\Users\jaroc\OneDrive\Рабочий стол\WPF\Client\Client\App.xaml
-2-1442674848
+TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
+C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\App.xaml
+41143469523
 
-6-653354214
-194-1053354111
-MainWindow.xaml;RegistrationWindow.xaml;
+102137025970
+1952122525370
+LoginPage.xaml;MainWindow.xaml;MessengerWindow.xaml;RegistrationPage.xaml;
 
-True
+False
 

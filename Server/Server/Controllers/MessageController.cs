@@ -45,8 +45,16 @@ namespace Server.Controllers
         [HttpPost]
         public void Post([FromBody] Message message)
         {
-            Program.AllMessages.Add(message.username,message.token, message.text);
-            Console.WriteLine($"{message.username} sent message: '{message.text}' ");
+            for (int j = 0; j < Program.AllSessions.sessions.Count; j++)
+            {
+                Console.WriteLine($"{message.token}:{Program.AllSessions.sessions[j].token}");
+                if (Program.AllSessions.sessions[j].token == message.token)
+                {
+                    Program.AllMessages.Add(message.username, message.token, message.text);
+                    Console.WriteLine($"{message.username} sent message: '{message.text}' ");
+                    return;
+                }
+            }
         }
     }
 }

@@ -29,7 +29,7 @@ namespace Server
         public Message(string _username,int _token, string _text)
         {
             this.username = _username;
-            this.token = token;
+            this.token = _token;
             this.text = _text;
             this.time = DateTime.UtcNow;
         }

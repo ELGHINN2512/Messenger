@@ -108,6 +108,3 @@ C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\C
 C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\obj\Release\netcoreapp3.1\Client.genruntimeconfig.cache
 C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\obj\Release\netcoreapp3.1\MessengerWindow.g.cs
 C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\obj\Release\netcoreapp3.1\MessengerWindow.baml
-C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\bin\Release\netcoreapp3.1\Emoji.Wpf.dll
-C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\bin\Release\netcoreapp3.1\Typography.GlyphLayout.dll
-C:\Users\Ярослав\source\repos\ELGHINN2512\Messenger\Messenger\GUIClient\Client\bin\Release\netcoreapp3.1\Typography.OpenFont.dll

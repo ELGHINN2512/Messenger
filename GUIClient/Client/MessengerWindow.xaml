@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Client.MessengerWindow"
-        xmlns:emoji="clr-namespace:Emoji.Wpf;assembly=Emoji.Wpf"
         mc:Ignorable="d"
         Title="Messenger" Height="640" Width="1024"
         Background="#222226"
@@ -17,14 +16,16 @@
             <StackPanel>
                 <Grid>
                     <Button Cursor="Hand" Content="☺"  x:Name="ButtonEmoji" Click="ClickEmoji" Margin="0,11,154,63" Background="#A3A3A3" Foreground="#464545" BorderBrush="#A3A3A3" HorizontalAlignment="Right" Width="48"></Button>
-                    <TextBox IsReadOnly="False" Margin="17,11,217,63" Background="#A3A3A3" CaretBrush="#444446" Foreground="#444446" SelectionBrush="#A3A3A3" FontSize="15" x:Name="MessageBox" Style="{DynamicResource MaterialDesignTextBoxBase}" TextChanged="MessageBox_TextChanged"/>
+                    <TextBox IsReadOnly="False" Margin="17,11,217,63" Background="#222226" CaretBrush="#444446" Foreground="#A3A3A3" SelectionBrush="#A3A3A3" FontSize="15" x:Name="MessageBox" Style="{DynamicResource MaterialDesignTextBoxBase}" TextChanged="MessageBox_TextChanged"/>
                     <Button  Content="Отправить" Width="118" Margin="0,11,22,63" Click="SendMessage" HorizontalAlignment="Right" Background="#A3A3A3" Foreground="#464545" BorderBrush="#A3A3A3" />
                 </Grid>
             </StackPanel>
         </Border>
 
-        <ScrollViewer Margin="24,1,0,55" x:Name="ChatPannel">
-            <TextBlock  FontSize="15" Height="Auto" TextWrapping ="Wrap" Foreground="#A3A3A3" x:Name="chat" ></TextBlock>
+        <ScrollViewer Margin="24,1,0,50" x:Name="ChatPannel">
+            <TextBlock  FontSize="15" Height="auto" TextWrapping ="Wrap" Foreground="#A3A3A3" x:Name="chat" >
+                <StackPanel/>
+            </TextBlock>
         </ScrollViewer>
 
         <Grid HorizontalAlignment="Left" Width="240" x:Name="LeftPanel" Visibility="Hidden">
@@ -46,10 +47,7 @@
                 <Button x:Name="ButtonExit" Content="Выход" Click="ClickButtonExit" Margin="10,58,141,10" Background="#A3A3A3" Foreground="#464545" BorderBrush="#A3A3A3"/>
                 <Button  x:Name="ButtonSettings" Content="Настройки" Click="ClickButtonSettings" Margin="110,58,22,10" Background="#A3A3A3" Foreground="#464545" BorderBrush="#A3A3A3"></Button>
             </Grid>
-
         </Grid>
-
-
 
         <Button  Margin="-18,0,0,0" Cursor="Hand"  VerticalAlignment="Center" x:Name="ButtonOpenPanel" Click="OpenPanel" HorizontalAlignment="Left" Width="33">
             <Button.Template>
@@ -63,5 +61,57 @@
             </Button.Template>
         </Button>
 
+        <Grid Visibility="Hidden" Background="#444446" Margin="0,0,23,55" Height="200" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="450" x:Name="emoji">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100*"></RowDefinition>
+                <RowDefinition Height="100*"/>
+                <RowDefinition Height="100*"/>
+                <RowDefinition Height="100*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100*"></ColumnDefinition>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="100*"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.ColumnSpan="8" Grid.RowSpan="4" Background="#444446"/>
+            <Button  Grid.Column="0" Grid.Row="0" Content="☺" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Cursor="Hand" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="0" Grid.Row="1" Content="☹" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji" />
+            <Button  Grid.Column="0" Grid.Row="2" Content="😁" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="0" Grid.Row="3" Content="☺" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="0" Grid.Row="3" Content="😍" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="1" Grid.Row="0" Content="😄" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="1" Grid.Row="1" Content="😎" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="1" Grid.Row="2" Content="😏" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="1" Grid.Row="3" Content="💕" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="2" Grid.Row="0" Content="😈" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="2" Grid.Row="1" Content="👍" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="2" Grid.Row="2" Content="💗" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="2" Grid.Row="3" Content="♥" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="3" Grid.Row="0" Content="😡" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="3" Grid.Row="1" Content="💪" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="3" Grid.Row="2" Content="💔" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="3" Grid.Row="3" Content="🔥" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="4" Grid.Row="0" Content="😶" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="4" Grid.Row="1" Content="🎉" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="4" Grid.Row="2" Content="😨" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="4" Grid.Row="3" Content="😌" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="5" Grid.Row="0" Content="😳" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="5" Grid.Row="1" Content="✨" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="5" Grid.Row="2" Content="🙈" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="5" Grid.Row="3" Content="😻" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="6" Grid.Row="0" Content="🚫" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="6" Grid.Row="1" Content="🌸" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="6" Grid.Row="2" Content="👉" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="6" Grid.Row="3" Content="💝" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="7" Grid.Row="0" Content="😐" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="7" Grid.Row="1" Content="🚙" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="7" Grid.Row="2" Content="👌" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+            <Button  Grid.Column="7" Grid.Row="3" Content="🐼" Background="#444446" BorderBrush="#444446" Foreground="#A3A3A3"  Height="50" VerticalAlignment="Center" Click="ChoiceEmoji"/>
+        </Grid>
     </Grid>
 </Window>

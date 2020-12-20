@@ -20,11 +20,8 @@ namespace Client
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static MessengerWindow messengerWindow = new MessengerWindow();
         LoginPage loginPage = new LoginPage();
         RegistrationPage registrationPage = new RegistrationPage();
-        public static int token = 0;
-        public static string login = "";
 
         public MainWindow()
         {
@@ -55,8 +52,11 @@ namespace Client
             frame.Navigate(registrationPage);
         }
         
-        public void transitionMessanger()
+        public void transitionMessanger(string _login, int _token)
         {
+            MessengerWindow messengerWindow = new MessengerWindow();
+            messengerWindow.login = _login;
+            messengerWindow.token = _token;
             messengerWindow.Show();
             Hide();
         }

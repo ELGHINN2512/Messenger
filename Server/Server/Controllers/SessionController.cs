@@ -30,12 +30,14 @@ namespace Server.Controllers
                             if(Program.AllSessions.sessions[j].login == userData.login)
                             {
                                 Program.AllSessions.sessions[j].token = token;
-                                Console.WriteLine($"User {userData.login} logged in. Token: {token}");
+                               Console.WriteLine($"User {userData.login} logged in. Token: {token}");
+                                Program.AllMessages.Add("Server", 0, $"\t\t\tПользователь {userData.login} зашёл в чат");
                                 return token;
                             }
                         }
                         Program.AllSessions.Add(token, userData.login);
                         Console.WriteLine($"User {userData.login} logged in. Token: {token}");
+                        Program.AllMessages.Add("Server", 0, $"\t\t\tПользователь {userData.login} зашёл в чат");
                         return token;
                     }
                     else return -2; // Неверный пароль
