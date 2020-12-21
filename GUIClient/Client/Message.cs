@@ -50,6 +50,11 @@ namespace Server
             messages.Add(message);
         }
 
+        public void Add(Message message)
+        {
+            messages.Add(message);
+        }
+
 
     }
 }

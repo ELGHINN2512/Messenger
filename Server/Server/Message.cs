@@ -56,12 +56,13 @@ namespace Server
                 }
                 message = new Message();
                 messages.Add(message);
+                this.Add(message);
                 file.Close();
             }
             else
             {
                 Message message = new Message();
-                messages.Add(message);
+                this.Add(message);
             }
         }
 
@@ -70,6 +71,12 @@ namespace Server
             Message message = new Message(username,token, text);
             messages.Add(message);
             File.AppendAllText("SavedMessages.txt", JsonConvert.SerializeObject(message).ToString()+ "\n");
+        }
+
+        void Add(Message message)
+        {
+            messages.Add(message);
+            File.AppendAllText("SavedMessages.txt", JsonConvert.SerializeObject(message).ToString() + "\n");
         }
     }
 }

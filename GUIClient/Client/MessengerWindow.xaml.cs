@@ -22,10 +22,14 @@ namespace Client
     /// </summary>
     public partial class MessengerWindow : Window
     {
-        int lastMsgID = 0;
+        int lastMsgID = 0;  
         public string login;
         public int token;
         static public bool flagCloseMainWindow = true;
+        Messages AllMessages = new Messages();
+        string StrAllMesages = "";
+        bool ViewMessageID = true;
+        
 
         public MessengerWindow()
         {
@@ -52,8 +56,19 @@ namespace Client
             Message msg = GetMessage(lastMsgID);
             if (msg != null)
             {
-                chat.Text = chat.Text + $"\n {((msg.time.Hour)+3)%24}:{msg.time.Minute} | \t{msg.username}\n {msg.text}\n";
+                AllMessages.Add(msg);
                 lastMsgID++;
+                if (ViewMessageID == false)
+                {
+                    StrAllMesages = StrAllMesages + $"\n {((msg.time.Hour) + 3) % 24}:{msg.time.Minute} | \t{msg.username}\n {msg.text}\n";
+                    chat.Text = StrAllMesages;
+                }
+                else
+                {
+                    StrAllMesages = StrAllMesages + $"\n[ ID:{lastMsgID-1} ] {((msg.time.Hour) + 3) % 24}:{msg.time.Minute} | \t{msg.username}\n {msg.text}\n";
+                    chat.Text = StrAllMesages;
+                }
+
             }
         }
         private void SendMessage(object sender, RoutedEventArgs e)
