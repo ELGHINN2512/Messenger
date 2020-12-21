@@ -29,14 +29,25 @@ namespace Client
 
         public MessengerWindow()
         {
-            DispatcherTimer timer = new DispatcherTimer();
-            timer.Tick += new EventHandler(timer_Tick);
-            timer.Interval = new TimeSpan(0, 0, 0, 0, 500);
-            timer.Start();
+            DispatcherTimer timerMsg = new DispatcherTimer();
+            timerMsg.Tick += new EventHandler(timer_Tick_Msg);
+            timerMsg.Interval = new TimeSpan(0, 0, 0, 0, 500);
+            timerMsg.Start();
+
+            DispatcherTimer timerOnline = new DispatcherTimer();
+            timerOnline.Tick += new EventHandler(timer_Tick_Online);
+            timerOnline.Interval = new TimeSpan(0, 0, 0, 10, 0);
+            timerOnline.Start();
+
             InitializeComponent();
         }
 
-        private void timer_Tick(object sender, EventArgs e)
+        private void timer_Tick_Online(object sender, EventArgs e)
+        {
+            SendOnline(new Session(token, login));
+        }
+
+        private void timer_Tick_Msg(object sender, EventArgs e)
         {
             Message msg = GetMessage(lastMsgID);
             if (msg != null)
@@ -84,6 +95,21 @@ namespace Client
             return JsonConvert.DeserializeObject<Message>(smsg);
         }
 
+        static void SendOnline(Session session)
+        {
+            WebRequest httpWebRequest = WebRequest.Create("http://localhost:5000/api/online");
+            httpWebRequest.Method = "POST";
+            httpWebRequest.ContentType = "application/json";
+            string postData = JsonConvert.SerializeObject(session);
+            byte[] bytes = Encoding.UTF8.GetBytes(postData);
+            httpWebRequest.ContentLength = bytes.Length;
+            Stream reqStream = httpWebRequest.GetRequestStream();
+            reqStream.Write(bytes, 0, bytes.Length);
+            reqStream.Close();
+
+            httpWebRequest.GetResponse();
+        }
+
         private void OpenPanel(object sender, RoutedEventArgs e)
         {
             ShowName.Text = login;
@@ -97,6 +123,11 @@ namespace Client
         {
             LeftPanel.Visibility = Visibility.Hidden;
             ButtonOpenPanel.Visibility = Visibility.Visible;
+            if (SettingPanel.Visibility == Visibility.Visible)
+            {
+                SettingPanel.Visibility = Visibility.Hidden;
+                AdminPanel.Visibility = Visibility.Hidden;
+            }
             InputPanel.Margin = new Thickness(0, 0, 0, 0);
             ChatPannel.Margin = new Thickness(24, 1, 0, 55);
         }
@@ -104,14 +135,22 @@ namespace Client
         private void ClickButtonExit(object sender, RoutedEventArgs e)
         {
             flagCloseMainWindow = false;
-            this.Close();
+            login = "";
+            token = 0;
+            Close();
             (Application.Current.MainWindow as MainWindow).Show();
             flagCloseMainWindow = true;
         }
 
         private void ClickButtonSettings(object sender, RoutedEventArgs e)
         {
-
+            if (SettingPanel.Visibility == Visibility.Hidden)
+                SettingPanel.Visibility = Visibility.Visible;
+            else
+            {
+                SettingPanel.Visibility = Visibility.Hidden;
+                AdminPanel.Visibility = Visibility.Hidden;
+            }
         }
 
         private void MessageBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -130,6 +169,14 @@ namespace Client
         private void ChoiceEmoji(object sender, RoutedEventArgs e)
         {
             MessageBox.Text = MessageBox.Text + (sender as Button).Content;
+        }
+
+        private void ClickAdminPanelButton(object sender, RoutedEventArgs e)
+        {
+            if (AdminPanel.Visibility == Visibility.Visible)
+                AdminPanel.Visibility = Visibility.Hidden;
+            else
+                AdminPanel.Visibility = Visibility.Visible;
         }
     }
 }

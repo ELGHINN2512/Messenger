@@ -20,3 +20,25 @@
 {"username":"Server","token":0,"text":"\t\t\tПользователь el покинул чат","time":"2020-12-20T18:51:40.6293364Z"}
 {"username":"Server","token":0,"text":"\t\t\tПользователь 1 зашёл в чат","time":"2020-12-20T18:55:51.021658Z"}
 {"username":"Server","token":0,"text":"\t\t\tПользователь 1 покинул чат","time":"2020-12-20T18:56:06.5325452Z"}
+{"username":"Server","token":0,"text":"\t\t\tПользователь el зашёл в чат","time":"2020-12-21T08:14:39.9750373Z"}
+{"username":"el","token":940866408,"text":"💗","time":"2020-12-21T08:15:11.9498662Z"}
+{"username":"el","token":940866408,"text":"🔥🔥🔥","time":"2020-12-21T08:15:36.8422899Z"}
+{"username":"Server","token":0,"text":"\t\t\tПользователь el покинул чат","time":"2020-12-21T08:15:36.9502961Z"}
+{"username":"Server","token":0,"text":"\t\t\tПользователь el зашёл в чат","time":"2020-12-21T08:28:39.9780827Z"}
+{"username":"Server","token":0,"text":"\t\t\tПользователь el зашёл в чат","time":"2020-12-21T08:30:50.2735352Z"}
+{"username":"el","token":226667083,"text":"😻😻😻😻","time":"2020-12-21T08:31:18.7181621Z"}
+{"username":"el","token":226667083,"text":"💝💝💝","time":"2020-12-21T08:31:21.0822974Z"}
+{"username":"el","token":226667083,"text":"🐼🐼🐼","time":"2020-12-21T08:31:22.2343633Z"}{"username":"Server","token":0,"text":"\t\t\tПользователь el зашёл в чат","time":"2020-12-21T13:10:18.9576468Z"}
+{"username":"el","token":541075645,"text":"💔💔💔","time":"2020-12-21T13:10:39.7428357Z"}
+{"username":"el","token":541075645,"text":"","time":"2020-12-21T13:10:40.0918557Z"}
+{"username":"el","token":541075645,"text":"\\t\\t\\t\\t\\t\\t","time":"2020-12-21T13:10:57.3228412Z"}
+{"username":"el","token":541075645,"text":"/t/t/t","time":"2020-12-21T13:11:02.3801305Z"}
+{"username":"el","token":541075645,"text":"/t/t/t/t/t","time":"2020-12-21T13:11:10.93962Z"}
+{"username":"el","token":541075645,"text":"\\t","time":"2020-12-21T13:11:38.5151973Z"}
+{"username":"el","token":541075645,"text":"\\t\\t\\t\\t\\t","time":"2020-12-21T13:11:48.3437594Z"}
+{"username":"el","token":541075645,"text":"/n/n/n/n","time":"2020-12-21T13:11:57.339274Z"}
+{"username":"el","token":541075645,"text":"\\n\\n\\n\\n","time":"2020-12-21T13:12:11.3550756Z"}
+{"username":"el","token":541075645,"text":"\"\\n\"","time":"2020-12-21T13:12:36.0264867Z"}
+{"username":"Server","token":0,"text":"\t\t\tПользователь el покинул чат","time":"2020-12-21T13:15:33.8806594Z"}
+{"username":"Server","token":0,"text":"\t\t\tПользователь el зашёл в чат","time":"2020-12-21T13:17:33.0314744Z"}
+{"username":"Server","token":0,"text":"\t\t\tПользователь el покинул чат","time":"2020-12-21T13:19:33.8803866Z"}

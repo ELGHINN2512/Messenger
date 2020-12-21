@@ -8,23 +8,6 @@ using System.Threading.Tasks;
 namespace Server
 {
     [Serializable]
-    public class SessionClass
-    {
-        public List<Session> sessions = new List<Session>();
-
-        public SessionClass()
-        {
-        }
-
-        public void Add(int token,string login, string password)
-        {
-            Session session = new Session(token, login, password);
-            sessions.Add(session);
-        }
-
-    }
-
-    [Serializable]
     public class Session
     {
         public int token { get; set; }
@@ -32,11 +15,11 @@ namespace Server
         public int online { get; set; }
 
 
-        public Session(int _token, string _login, string _password)
+        public Session(int _token, string _login)
         {
             this.token = _token;
             this.login = _login;
-            this.online = 0;
+            this.online = 1;
         }
     }
 
