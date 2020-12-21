@@ -54,15 +54,7 @@ namespace Server
                     messages.Add(message);
                     Console.WriteLine($"Message: '{message.text}' from {message.username} has been loaded");
                 }
-                message = new Message();
-                messages.Add(message);
-                this.Add(message);
                 file.Close();
-            }
-            else
-            {
-                Message message = new Message();
-                this.Add(message);
             }
         }
 
