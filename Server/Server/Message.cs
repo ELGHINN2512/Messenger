@@ -43,18 +43,25 @@ namespace Server
 
         public Messages()
         {
-            if(File.Exists("SavedMessages.txt"))
+            if (File.Exists("SavedMessages.txt"))
             {
                 Message message;
                 string line;
                 StreamReader file = new StreamReader("SavedMessages.txt");
-                while((line = file.ReadLine()) != null)
+                while ((line = file.ReadLine()) != null)
                 {
                     message = JsonConvert.DeserializeObject<Message>(line);
                     messages.Add(message);
                     Console.WriteLine($"Message: '{message.text}' from {message.username} has been loaded");
                 }
+                message = new Message();
+                messages.Add(message);
                 file.Close();
+            }
+            else
+            {
+                Message message = new Message();
+                messages.Add(message);
             }
         }
 

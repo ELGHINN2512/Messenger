@@ -20,12 +20,14 @@ namespace Server
 
         public static Messages AllMessages = new Messages();
         public static SessionClass AllSessions = new SessionClass();
+        public static SessionClass AdminSessons = new SessionClass();
         public static Users Allusers = new Users();
+        public static List<int> AllDeletedMessages = new List<int>();
 
         public static void Main(string[] args)
         {
             TimerCallback tm = new TimerCallback(OnlineControl);
-            Timer timer = new Timer(tm, 1, 0, 30000);
+            Timer timer = new Timer(tm, 1, 0, 20000);
             CreateHostBuilder(args).Build().Run();
         }
 
@@ -37,6 +39,11 @@ namespace Server
                 {
                     AllMessages.Add("Server", 0, $"\t\t\tПользователь {AllSessions.sessions[i].login} покинул чат");
                     Console.WriteLine($"User {AllSessions.sessions[i].login} logged out.");
+                    for(int j=0;j<AdminSessons.sessions.Count; j++)
+                    {
+                        if(AllSessions.sessions[i].login == AdminSessons.sessions[j].login)
+                            AdminSessons.sessions.RemoveAt(j);
+                    }
                     AllSessions.sessions.RemoveAt(i);
                     i--;
                     continue;

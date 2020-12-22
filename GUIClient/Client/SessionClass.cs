@@ -36,4 +36,21 @@ namespace Server
             password = _password;
         }
     }
+
+    [Serializable]
+    public class DeleteMessageData
+    {
+        public string login { get; set; }
+        public int token { get; set; }
+        public int messageID { get; set; }
+
+        public DeleteMessageData() { }
+
+        public DeleteMessageData(string _login,int _token, int _messageID)
+        {
+            login = _login;
+            token = _token;
+            messageID = _messageID;
+        }
+    }
 }

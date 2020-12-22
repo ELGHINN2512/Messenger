@@ -27,18 +27,18 @@ namespace Server
             return random.Next(100000000, 999999999);
         }
 
-        //public int CheckData(Message message)
-        //{
-        //    for (int i = 0; i < sessions.Count; i++)
-        //    {
-        //        if (sessions[i].login == message.username)
-        //            if (sessions[i].token == message.token)
-        //                return 1;
-        //            else
-        //                return -1;
-        //    }
-        //    return -1;
-        //}
+        public int CheckData(int token, string login)
+        {
+            for (int i = 0; i < sessions.Count; i++)
+            {
+                if (sessions[i].login == login)
+                    if (sessions[i].token == token)
+                        return 1;
+                    else
+                        return -1;
+            }
+            return -1;
+        }
     }
 
     [Serializable]
@@ -103,6 +103,23 @@ namespace Server
         {
             login = _login;
             password = _password;
+        }
+    }
+
+    [Serializable]
+    public class DeleteMessageData
+    {
+        public  string login { get; set; }
+        public  int token { get; set; }
+        public  int messageID { get; set; }
+
+        public DeleteMessageData() { }
+
+        public DeleteMessageData(string _login, int _token, int _messageID)
+        {
+            login = _login;
+            token = _token;
+            messageID = _messageID;
         }
     }
 
