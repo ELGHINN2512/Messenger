@@ -27,11 +27,10 @@ namespace Server.Controllers
         {
             for (int i = 0; i < Program.AdminSessons.sessions.Count; i++)
             {
-                Console.WriteLine($"{Program.AdminSessons.sessions[i].login}:{deleteMessageData.login}");
                 if (Program.AdminSessons.sessions[i].login == deleteMessageData.login)
                 {
                     Program.AllDeletedMessages.Add(deleteMessageData.messageID);
-                    Console.WriteLine($"Администратор {deleteMessageData.login} удалил сообщение с ID = {deleteMessageData.messageID}");
+                    Console.WriteLine($"Admin {deleteMessageData.login} delete message ID = {deleteMessageData.messageID}");
 
                     Message OldMessage = new Message();
                     OldMessage.username = Program.AllMessages.messages[deleteMessageData.messageID].username;

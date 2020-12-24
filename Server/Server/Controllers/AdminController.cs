@@ -22,7 +22,7 @@ namespace Server.Controllers
             if (userData.password == AdminPassword)
             {
                 Program.AdminSessons.Add(0, userData.login);
-                Console.WriteLine($"{userData.login} получил права администратора");
+                Console.WriteLine($"{userData.login} got admin permission");
                 return 1;
             }
             else

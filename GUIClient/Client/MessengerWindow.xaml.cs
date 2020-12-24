@@ -59,6 +59,7 @@ namespace Client
             {
                 if(IDdeleteMsg != -1)
                 {
+                    lastMsgDeleteID++;
                     string newStrAllMessages = "";
                     for(int i = 0; i<AllMessages.messages.Count; i++)
                     {
@@ -85,8 +86,9 @@ namespace Client
                         }
                     }
                     StrAllMesages = newStrAllMessages;
+                    newStrAllMessages = "";
+                    chat.Text = "";
                     chat.Text = StrAllMesages;
-                    lastMsgDeleteID++;
                 }
             }
         }
@@ -108,12 +110,11 @@ namespace Client
                     if (msg.username == "Server")
                     {
                         StrAllMesages = StrAllMesages + $"\n {((msg.time.Hour) + 3) % 24}:{msg.time.Minute}\t {msg.text}\n";
-                        chat.Text = StrAllMesages;
                     }
                     else
                     {
                         StrAllMesages = StrAllMesages + $"\n {((msg.time.Hour) + 3) % 24}:{msg.time.Minute}     {msg.username}\n {msg.text}\n";
-                        chat.Text = StrAllMesages;
+
                     }
                 }
                 else
@@ -121,14 +122,15 @@ namespace Client
                     if (msg.username == "Server")
                     {
                         StrAllMesages = StrAllMesages + $"\n[ ID:{lastMsgID - 1} ] {((msg.time.Hour) + 3) % 24}:{msg.time.Minute}\t {msg.text}\n";
-                        chat.Text = StrAllMesages;
+
                     }
                     else
                     {
                         StrAllMesages = StrAllMesages + $"\n[ ID:{lastMsgID - 1} ] {((msg.time.Hour) + 3) % 24}:{msg.time.Minute}     {msg.username}\n {msg.text}\n";
-                        chat.Text = StrAllMesages;
+
                     }
                 }
+                chat.Text = StrAllMesages;
             }
         }
 
@@ -158,6 +160,8 @@ namespace Client
             {
                 SettingPanel.Visibility = Visibility.Hidden;
                 AdminPanel.Visibility = Visibility.Hidden;
+                ChatBackground.Visibility = Visibility.Hidden;
+                
             }
             InputPanel.Margin = new Thickness(0, 0, 0, 0);
             ChatPannel.Margin = new Thickness(24, 1, 0, 55);
@@ -267,7 +271,10 @@ namespace Client
             if (AdminPanel.Visibility == Visibility.Visible)
                 AdminPanel.Visibility = Visibility.Hidden;
             else
+            {
+                ChatBackground.Visibility = Visibility.Hidden;
                 AdminPanel.Visibility = Visibility.Visible;
+            }
         }
 
         private void Click_SendAdminPassword(object sender, RoutedEventArgs e)
@@ -277,12 +284,15 @@ namespace Client
                 ViewMessageID = true;
                 lastMsgID = 0;
                 lastMsgDeleteID = 0;
+                AllMessages.messages.Clear();
                 StrAllMesages = "";
             }
         }
 
         private void ClickSendMessage(object sender, RoutedEventArgs e)
         {
+            if (MessageBox.Text.Length < 0)
+                return;
             if (MessageBox.Text.Contains("/delete"))
             {
                 int MessageID;
@@ -317,12 +327,41 @@ namespace Client
             {
                 SettingPanel.Visibility = Visibility.Hidden;
                 AdminPanel.Visibility = Visibility.Hidden;
+                ChatBackground.Visibility = Visibility.Hidden;
             }
         }
 
         private void MessageBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void Click_Panda1Background(object sender, RoutedEventArgs e)
+        {
+            Panda.Visibility = Visibility.Visible;
+            Panda.Source = new BitmapImage(new Uri(@"Resources/panda.png", UriKind.Relative));
+        }
+
+        private void Click_Panda2Background(object sender, RoutedEventArgs e)
+        {
+            Panda.Visibility = Visibility.Visible;
+            Panda.Source = new BitmapImage(new Uri(@"Resources/panda2.png", UriKind.Relative));
+        }
+
+        private void Click_CustomBackground(object sender, RoutedEventArgs e)
+        {
+            Panda.Visibility = Visibility.Hidden;
+        }
+
+        private void ClickBackgroundChatButton(object sender, RoutedEventArgs e)
+        {
+            if (ChatBackground.Visibility == Visibility.Visible)
+                ChatBackground.Visibility = Visibility.Hidden;
+            else
+            {
+                ChatBackground.Visibility = Visibility.Visible;
+                AdminPanel.Visibility = Visibility.Hidden;
+            }
         }
     }
 }

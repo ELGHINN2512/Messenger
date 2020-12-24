@@ -54,8 +54,6 @@ namespace Server
         {
             messages.Add(message);
         }
-
-
     }
 }
 

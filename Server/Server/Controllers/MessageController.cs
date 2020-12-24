@@ -47,7 +47,6 @@ namespace Server.Controllers
         {
             for (int j = 0; j < Program.AllSessions.sessions.Count; j++)
             {
-                Console.WriteLine($"{message.token}:{Program.AllSessions.sessions[j].token}");
                 if (Program.AllSessions.sessions[j].token == message.token)
                 {
                     Program.AllMessages.Add(message.username, message.token, message.text);

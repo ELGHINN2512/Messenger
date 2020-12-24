@@ -29,24 +29,48 @@ namespace Client
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            bool warnflag = false;
+
+            if (login.Text.Length < 2)
+            {
+                warn2.Visibility = Visibility.Hidden;
+                warn3.Visibility = Visibility.Visible;
+                warnflag = true;
+            }    
             if (pass1.Password != pass2.Password)
             {
+                warn4.Visibility = Visibility.Hidden;
                 warn.Visibility = Visibility.Visible;
+                warnflag = true;
+
+            }
+            if (pass1.Password.Length < 6)
+            {
+                warn.Visibility = Visibility.Hidden;
+                warn4.Visibility = Visibility.Visible;
+                warnflag = true;
+
+            }
+            if (warnflag == true)
+                return;
+
+            if (Registration(login.Text, pass1.Password) == -1)
+            {
+                warn.Visibility = Visibility.Hidden;
+                warn2.Visibility = Visibility.Visible;
+                warn3.Visibility = Visibility.Hidden;
+                warn4.Visibility = Visibility.Hidden;
+                warnflag = true;
+
             }
             else
             {
-                if (Registration(login.Text, pass1.Password) == -1)
-                {
-                    warn2.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    login.Text = "";
-                    warn2.Visibility = Visibility.Hidden;
-                    warn.Visibility = Visibility.Hidden;
-                    (Application.Current.MainWindow as MainWindow).transitionToAuthorization();
-                }
-
+                login.Text = "";
+                warn4.Visibility = Visibility.Hidden;
+                warn3.Visibility = Visibility.Hidden;
+                warn2.Visibility = Visibility.Hidden;
+                warn.Visibility = Visibility.Hidden;
+                (Application.Current.MainWindow as MainWindow).transitionToAuthorization();
             }
         }
 
