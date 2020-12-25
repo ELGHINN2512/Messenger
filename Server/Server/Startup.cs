@@ -24,7 +24,18 @@ namespace Server
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string Address = "";
+            Console.Write("Enter address:port (Press ENTER to skip):");
+            Address = Console.ReadLine();
+
             services.AddControllers();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsApi",
+                builder => builder.WithOrigins("http://localhost:8080", Address)
+                .AllowAnyHeader()
+                .AllowAnyMethod());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

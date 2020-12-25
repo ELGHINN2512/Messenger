@@ -16,3 +16,4 @@
 {"username":"SSS","token":818201239,"text":"uhhjj<br>fffff","time":"2020-12-25T12:27:37.7970544Z"}
 {"username":"SSS","token":818201239,"text":"/n","time":"2020-12-25T12:27:55.5528196Z"}
 {"username":"SSS","token":818201239,"text":"\\n","time":"2020-12-25T12:28:10.3141641Z"}
+{"username":"Server","token":0,"text":"\t\t\tПользователь SSS покинул чат","time":"2020-12-25T12:29:55.4992438Z"}
