@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "dSrmwjdleEYAAEs7JlgPEcohYdQc1ouh3GDUH0aDpg654tLz/ndpBhuzgODYf5u79ia0G3gauR5Hk2QwLtW8VQ==",
+  "dgSpecHash": "xhMvH/k7cA7MlRqg65+1GwnZfW33k1ovW3nEGEqJlH210ZNAgm9V77LdTbGs5BqUPEVgIf5wIHP8MDdAFoy9Yw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ярослав\\source\\repos\\ELGHINN2512\\Messenger\\Messenger\\GUIClient\\Client\\Client.csproj",
+  "projectFilePath": "C:\\Users\\jaroc\\source\\repos\\Messenger\\Client\\GUIClient\\Client\\Client.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Ярослав\\.nuget\\packages\\materialdesigncolors\\1.2.7\\materialdesigncolors.1.2.7.nupkg.sha512",
-    "C:\\Users\\Ярослав\\.nuget\\packages\\materialdesignthemes\\3.2.0\\materialdesignthemes.3.2.0.nupkg.sha512",
-    "C:\\Users\\Ярослав\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+    "C:\\Users\\jaroc\\.nuget\\packages\\materialdesigncolors\\1.2.7\\materialdesigncolors.1.2.7.nupkg.sha512",
+    "C:\\Users\\jaroc\\.nuget\\packages\\materialdesignthemes\\3.2.0\\materialdesignthemes.3.2.0.nupkg.sha512",
+    "C:\\Users\\jaroc\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
   ],
   "logs": []
 }

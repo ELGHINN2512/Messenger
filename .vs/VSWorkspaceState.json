@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Client",
-    "\\Client\\ConsoleClient"
+    "\\Server"
   ],
-  "SelectedNode": "\\Client\\ConsoleClient\\ConsoleClient.sln",
+  "SelectedNode": "\\Server\\Server.sln",
   "PreviewInSolutionExplorer": false
 }

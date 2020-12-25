@@ -291,7 +291,7 @@ namespace Client
 
         private void ClickSendMessage(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Text.Length < 0)
+            if (MessageBox.Text.Length < 1)
                 return;
             if (MessageBox.Text.Contains("/delete"))
             {
