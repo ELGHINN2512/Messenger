@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "/77Undwtx5jiFjmHpqnsCXkZGwctumeio8W8hBqeGY6+SZiD4SaxiBrFWZ3jvktCdcluUJ4AALuBjMSEplrp9g==",
+  "dgSpecHash": "7P2zohUl9m9MtrF16hh31eRuwfYJunOnuunZL7Hlv3yfVQRasU+L9y6AA/0Qt+Xg8RUHMBRtOKtLurRDinEilA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ярослав\\source\\repos\\ELGHINN2512\\Messenger\\Messenger\\Client\\ConsoleClient\\ConsoleClient\\ConsoleClient.csproj",
+  "projectFilePath": "C:\\Users\\jaroc\\source\\repos\\Messenger\\Client\\ConsoleClient\\ConsoleClient\\ConsoleClient.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Ярослав\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.0\\microsoft.netframework.referenceassemblies.1.0.0.nupkg.sha512",
-    "C:\\Users\\Ярослав\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
-    "C:\\Users\\Ярослав\\.nuget\\packages\\nstack.core\\0.14.0\\nstack.core.0.14.0.nupkg.sha512",
-    "C:\\Users\\Ярослав\\.nuget\\packages\\terminal.gui\\0.90.3\\terminal.gui.0.90.3.nupkg.sha512"
+    "C:\\Users\\jaroc\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.0\\microsoft.netframework.referenceassemblies.1.0.0.nupkg.sha512",
+    "C:\\Users\\jaroc\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\jaroc\\.nuget\\packages\\nstack.core\\0.14.0\\nstack.core.0.14.0.nupkg.sha512",
+    "C:\\Users\\jaroc\\.nuget\\packages\\terminal.gui\\0.90.3\\terminal.gui.0.90.3.nupkg.sha512"
   ],
   "logs": []
 }

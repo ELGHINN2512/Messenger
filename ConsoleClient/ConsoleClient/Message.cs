@@ -1,28 +1,35 @@
-﻿using ConsoleClient;
+﻿using Server;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.IO;
+using System.Net;
+using System.Text;
 
-namespace ConsoleClient
+namespace Server
 {
     [Serializable]
     public class Message
     {
         public string username { get; set; }
+        public int token { get; set; }
         public string text { get; set; }
         public DateTime time { get; set; }
         // Добавить время сообщения
         public Message()
         {
-            this.username = "Server";
-            this.text = "Server is running";
-            this.time = DateTime.UtcNow;
+                this.username = "Server";
+                this.token = 0;
+                this.text = "Server is running";
+                this.time = DateTime.UtcNow;
         }
 
-        public Message(string _username, string _text)
+        public Message(string _username,int _token, string _text)
         {
             this.username = _username;
+            this.token = _token;
             this.text = _text;
             this.time = DateTime.UtcNow;
         }
@@ -35,31 +42,18 @@ namespace ConsoleClient
 
         public Messages()
         {
-            messages.Clear();
-            Message message = new Message();
+        }
+
+        public void Add(string username,int token, string text)
+        {
+            Message message = new Message(username, token, text);
             messages.Add(message);
         }
 
-        //public Messages(List<Message> messages)
-        //{
-        //    messages.Clear();
-        //    Message message = new Message();
-        //    messages.Add(message);
-        //}
         public void Add(Message message)
         {
             messages.Add(message);
         }
-
-        public void Add(string username, string text)
-        {
-            Message message = new Message(username, text);
-            messages.Add(message);
-        }
-
-        public override string ToString()
-        {
-            return messages.ToString();
-        }
     }
 }
+

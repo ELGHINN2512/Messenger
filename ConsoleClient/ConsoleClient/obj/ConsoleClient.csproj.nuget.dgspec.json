@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ярослав\\source\\repos\\ELGHINN2512\\Messenger\\Messenger\\Client\\ConsoleClient\\ConsoleClient\\ConsoleClient.csproj": {}
+    "C:\\Users\\jaroc\\source\\repos\\Messenger\\Client\\ConsoleClient\\ConsoleClient\\ConsoleClient.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ярослав\\source\\repos\\ELGHINN2512\\Messenger\\Messenger\\Client\\ConsoleClient\\ConsoleClient\\ConsoleClient.csproj": {
+    "C:\\Users\\jaroc\\source\\repos\\Messenger\\Client\\ConsoleClient\\ConsoleClient\\ConsoleClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ярослав\\source\\repos\\ELGHINN2512\\Messenger\\Messenger\\Client\\ConsoleClient\\ConsoleClient\\ConsoleClient.csproj",
+        "projectUniqueName": "C:\\Users\\jaroc\\source\\repos\\Messenger\\Client\\ConsoleClient\\ConsoleClient\\ConsoleClient.csproj",
         "projectName": "ConsoleClient",
-        "projectPath": "C:\\Users\\Ярослав\\source\\repos\\ELGHINN2512\\Messenger\\Messenger\\Client\\ConsoleClient\\ConsoleClient\\ConsoleClient.csproj",
-        "packagesPath": "C:\\Users\\Ярослав\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ярослав\\source\\repos\\ELGHINN2512\\Messenger\\Messenger\\Client\\ConsoleClient\\ConsoleClient\\obj\\",
+        "projectPath": "C:\\Users\\jaroc\\source\\repos\\Messenger\\Client\\ConsoleClient\\ConsoleClient\\ConsoleClient.csproj",
+        "packagesPath": "C:\\Users\\jaroc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jaroc\\source\\repos\\Messenger\\Client\\ConsoleClient\\ConsoleClient\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Ярослав\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\jaroc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"

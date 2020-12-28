@@ -7,12 +7,15 @@ using System.Threading;
 using System.Timers;
 using ConsoleClient;
 using Newtonsoft.Json;
+using Server;
 using Terminal.Gui;
 
 
 
 namespace ConsoleClient
 {
+
+
 
     class Program
     {
@@ -26,10 +29,55 @@ namespace ConsoleClient
         private static Button buttonSend;
 
         private static Messages allMessages = new Messages();
+        static int choise;
+        static string login;
+        static string password;
+        static int token;
 
 
         static void Main(string[] args)
         {
+
+            Console.Write("Добро Пожаловать!\n1.Авторизация\n2.Регистрация\n");
+            do
+            {
+                Console.Write("Ваш выбор: ");
+                choise = Convert.ToInt32(Console.ReadLine());
+            } while ((choise != 1) && (choise != 2));
+
+            if (choise == 2)
+            {
+                Console.Clear();
+                Console.WriteLine("РЕГИСТРАЦИЯ");
+
+                do
+                {
+                    Console.Write("Логин: ");
+                    login = Console.ReadLine();
+                    Console.Write("Пароль:");
+                    password = Console.ReadLine();
+                    token = Registration(login, password);
+                    Console.WriteLine("Попытка регистрации...");
+                } while (token != 1);
+                choise = 1;
+            }
+
+            if (choise == 1)
+            {
+                Console.Clear();
+                Console.WriteLine("АВТОРИЗАЦИЯ");
+                do
+                {
+                    Console.Write("Логин: ");
+                    login = Console.ReadLine();
+                    Console.Write("Пароль:");
+                    password = Console.ReadLine();
+                    token = Authorization(login, password);
+                    Console.WriteLine("Попытка авторизации...");
+                } while (token < 0);
+            }
+            Console.Clear();
+
             Application.Init();
 
             ColorScheme mainColor = new ColorScheme();
@@ -68,31 +116,11 @@ namespace ConsoleClient
                 X = 0,
                 Y = 0,
                 Width = winMain.Width,
-                Height = winMain.Height - 3,
+                Height = winMain.Height - 1,
                 ColorScheme = mainColor,
             };
             winMain.Add(winMessages);
 
-            // Текст "Пользователь"
-            labelUsername = new Label()
-            {
-                X = 7,
-                Y = Pos.Bottom(winMain)-6,
-                Width = 17,
-                Height = 1,
-                Text = "Username:",
-            };
-            winMain.Add(labelUsername);
-
-            fieldUsername = new TextField()
-            {
-                X = 18,
-                Y = Pos.Bottom(winMain) - 6,
-                Width = 30,
-                Height = 1,
-                ColorScheme = mainColor,
-            };
-            winMain.Add(fieldUsername);
 
             labelMessage = new Label()
             {
@@ -127,7 +155,7 @@ namespace ConsoleClient
             int lastMsgID = 0;
             bool msgSent = true;
             System.Timers.Timer updateLoop = new System.Timers.Timer();
-            updateLoop.Interval = 100;
+            updateLoop.Interval = 1000;
             updateLoop.Elapsed += (object sender, ElapsedEventArgs e) =>
             {
                 Message message = GetMessage(lastMsgID);
@@ -140,15 +168,24 @@ namespace ConsoleClient
                     msgSent = true;
                 }
             };
+
+            System.Timers.Timer updateOnline = new System.Timers.Timer();
+            updateOnline.Interval = 10000;
+            updateOnline.Elapsed += (object sender, ElapsedEventArgs e) =>
+            {
+                SendOnline(new Session(token, login));
+            };
+
+            updateOnline.Start();
             updateLoop.Start();
 
             Application.Run();
 
             static void ButtonSendClick()
             {
-                if (fieldMessage.Text.Length != 0 && fieldUsername.Text.Length != 0)
+                if (fieldMessage.Text.Length != 0)
                 {
-                    Message message = new Message(fieldUsername.Text.ToString(), fieldMessage.Text.ToString());
+                    Message message = new Message(login,token, fieldMessage.Text.ToString());
                     SendMassage(message);
                     fieldMessage.Text = "";
                 }
@@ -202,6 +239,60 @@ namespace ConsoleClient
                 }
                 return JsonConvert.DeserializeObject<Message>(smsg);
             }
+
+            int Authorization(string login, string password)
+            {
+                UserData userData = new UserData(login, password);
+                WebRequest httpWebRequest = WebRequest.Create("http://localhost:5000/api/session");
+                httpWebRequest.Method = "POST";
+                httpWebRequest.ContentType = "application/json";
+                string postData = JsonConvert.SerializeObject(userData);
+                byte[] bytes = Encoding.UTF8.GetBytes(postData);
+                httpWebRequest.ContentLength = bytes.Length;
+                Stream reqStream = httpWebRequest.GetRequestStream();
+                reqStream.Write(bytes, 0, bytes.Length);
+                int resp;
+                using (var response = (HttpWebResponse)httpWebRequest.GetResponse())
+                    resp = Convert.ToInt32(new StreamReader(response.GetResponseStream()).ReadToEnd());
+                reqStream.Close();
+                return resp;
+            }
+
+            static int Registration(string login, string password)
+            {
+                UserData userData = new UserData(login, password);
+                WebRequest httpWebRequest = WebRequest.Create("http://localhost:5000/api/registration");
+                httpWebRequest.Method = "POST";
+                httpWebRequest.ContentType = "application/json";
+                string postData = JsonConvert.SerializeObject(userData);
+                byte[] bytes = Encoding.UTF8.GetBytes(postData);
+                httpWebRequest.ContentLength = bytes.Length;
+                Stream reqStream = httpWebRequest.GetRequestStream();
+                reqStream.Write(bytes, 0, bytes.Length);
+                int resp;
+                using (var response = (HttpWebResponse)httpWebRequest.GetResponse())
+                    resp = Convert.ToInt32(new StreamReader(response.GetResponseStream()).ReadToEnd());
+                reqStream.Close();
+                return resp;
+            }
+
+            static void SendOnline(Session session)
+            {
+                WebRequest httpWebRequest = WebRequest.Create("http://localhost:5000/api/online");
+                httpWebRequest.Method = "POST";
+                httpWebRequest.ContentType = "application/json";
+                string postData = JsonConvert.SerializeObject(session);
+                byte[] bytes = Encoding.UTF8.GetBytes(postData);
+                httpWebRequest.ContentLength = bytes.Length;
+                Stream reqStream = httpWebRequest.GetRequestStream();
+                reqStream.Write(bytes, 0, bytes.Length);
+                reqStream.Close();
+
+                httpWebRequest.GetResponse();
+            }
+
+
         }
     }
 }
+

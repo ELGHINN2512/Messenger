@@ -6,8 +6,6 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace Server.Controllers
 {
     [Route("api/[controller]")]
@@ -48,11 +46,12 @@ namespace Server.Controllers
             for (int j = 0; j < Program.AllSessions.sessions.Count; j++)
             {
                 if (Program.AllSessions.sessions[j].token == message.token)
-                {
-                    Program.AllMessages.Add(message.username, message.token, message.text);
-                    Console.WriteLine($"{message.username} sent message: '{message.text}' ");
-                    return;
-                }
+                    if(Program.AllSessions.sessions[j].login == message.username)
+                    {
+                        Program.AllMessages.Add(message.username, message.token, message.text);
+                        Console.WriteLine($"{message.username} sent message: '{message.text}' ");
+                        return;
+                    }
             }
         }
     }
